@@ -26,5 +26,24 @@ public class App
     	BenzModel benz = (BenzModel)benzBuilder.getCarModel();
     	//奔驰车跑一下看看
     	benz.run();
+    	//按照同样的顺序，我再要一个宝马
+    	BMWBuilder bmwBuilder = new BMWBuilder();
+    	bmwBuilder.setSequence(sequence);
+    	BMWModel bmw = (BMWModel)bmwBuilder.getCarModel();
+    	bmw.run();
+    	
+    	Director director = new Director();
+    	//10辆A类性的奔驰车
+    	for(int i = 0;i<10;i++){
+    		director.getABenzModel().run();
+    	}
+    	//10辆B类性的奔驰车
+    	for(int i = 0;i<10;i++){
+    		director.getBBenzModel().run();
+    	}
+    	//10辆C类型的宝马车
+    	for(int i = 0;i<10;i++){
+    		director.getCBMWModel();
+    	}
     }
 }
