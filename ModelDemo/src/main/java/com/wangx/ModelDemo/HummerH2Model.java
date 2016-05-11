@@ -21,7 +21,10 @@ public class HummerH2Model extends HummerModel {
 	public void engineBoom() {
 		System.out.println("悍马H2引擎声音是这样在...");
 	}
-
+	//钩子方法，默认喇叭是会响的
+	protected boolean isAlarm(){
+		return false;
+	}
 
 
 }

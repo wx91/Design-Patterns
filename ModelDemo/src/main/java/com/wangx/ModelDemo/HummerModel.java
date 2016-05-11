@@ -19,10 +19,18 @@ public abstract class HummerModel {
 		this.start();
 		//引擎开始轰鸣
 		this.engineBoom();
-		//然后就开始跑了，跑的过车中遇到了
-		this.alarm();
+		//然后就开始跑了，跑的过车中遇到了狗
+//		this.alarm();
+		//要让它叫的时候就叫，喇叭不想让它响就不响
+		if(this.isAlarm()){
+			this.alarm();
+		}
 		//达到目的地就停车
 		this.stop();
+	}
+	//钩子方法，默认喇叭是会响的
+	protected boolean isAlarm(){
+		return true;
 	}
 	
 }

@@ -1,14 +1,26 @@
 package com.wangx.ModelDemo;
-
+import java.io.*;
 /**
  * Hello world!
  *
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
-    	HummerModel h1 = new HummerH1Model();
+//    	HummerModel h1 = new HummerH1Model();
+//    	h1.run();
+    	System.out.println("-----H1型号悍马-----");
+    	System.out.println("H1型号悍马是否需要喇叭声响？0-不需要 1- 需要");
+    	InputStreamReader InputReader = new InputStreamReader(System.in);
+    	String type = new BufferedReader(InputReader).readLine();
+    	HummerH1Model h1 = new HummerH1Model();
+    	if(type.equals("0")){
+    		h1.setAlarm(false);
+    	}
     	h1.run();
+    	System.out.println("\n-----H2型号悍马-----");
+    	HummerH2Model h2 = new HummerH2Model();
+    	h2.run();
     }
 }
