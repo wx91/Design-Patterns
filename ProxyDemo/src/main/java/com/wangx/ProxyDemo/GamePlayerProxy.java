@@ -13,11 +13,11 @@ public class GamePlayerProxy implements IGamePlayer {
 	}
 	//代练杀怪
 	public void killBoss() {
-		this.killBoss();
+		this.gamePlayer.killBoss();
 	}
 	//代练升级
 	public void upgrade() {
-		this.upgrade();
+		this.gamePlayer.upgrade();
 	}
 
 }
