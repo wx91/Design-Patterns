@@ -1,5 +1,5 @@
 package com.wangx.CommandDemo;
-
+//Invoker
 public class Invoker {
 	private Command command;
 	//客户发出命令

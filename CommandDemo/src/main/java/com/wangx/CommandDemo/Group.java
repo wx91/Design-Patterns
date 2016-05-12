@@ -1,5 +1,5 @@
 package com.wangx.CommandDemo;
-
+//Receiver
 public abstract class Group {
 	//甲乙双方公开办公，如果你要和某个组讨论，你首先要找到这个组
 	public abstract void find();

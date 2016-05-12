@@ -1,5 +1,5 @@
 package com.wangx.CommandDemo;
-
+//Command
 public abstract class Command {
 	//把三个组都定义好，子类可以直接使用
 	protected RequirementGroup rg= new RequirementGroup();//需求组
