@@ -20,10 +20,11 @@ public class App
     	mail.setTail("XX银行版权所有");
     	while(i<MAX_COUNT){
     		//已下是每封邮件不同的地方
-    		mail.setAppellation(getRandString(5)+"先生（女士）");
-    		mail.setReceiver(getRandString(5)+"@"+getRandString(8)+".com");
+    		Mail cloneMail = mail.clone();
+    		cloneMail.setAppellation(getRandString(5)+"先生（女士）");
+    		cloneMail.setReceiver(getRandString(5)+"@"+getRandString(8)+".com");
     		//然后发送邮件
-    		sendMail(mail);
+    		sendMail(cloneMail);
     		i++;
     	}
     }

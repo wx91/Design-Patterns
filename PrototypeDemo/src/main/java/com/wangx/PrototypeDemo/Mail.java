@@ -1,6 +1,6 @@
 package com.wangx.PrototypeDemo;
 
-public class Mail {
+public class Mail implements Cloneable{
 	//收件人
 	private String receiver;
 	//邮件名称
@@ -16,6 +16,17 @@ public class Mail {
 		this.context = advTemplate.getAdvContext();
 		this.subject = advTemplate.getAdvSuject();
 	}
+	@Override
+	public Mail clone(){
+		Mail mail = null;
+		try{
+			mail = (Mail)super.clone();
+		}catch(CloneNotSupportedException e){
+			e.printStackTrace();
+		}
+		return mail;
+	}
+	
 	public String getReceiver() {
 		return receiver;
 	}
