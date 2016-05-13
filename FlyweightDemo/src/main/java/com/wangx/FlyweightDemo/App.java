@@ -9,14 +9,14 @@ public class App
     public static void main( String[] args )
     {
     	//初始化对象池
-    	for(int i=0;i<4;i++){
-    		String subject = "科目"+i;
-    		//初始化地址
-    		for(int j=0;j<30;j++){
-    			String key = subject+"考试地点"+j;
-    			SignInfoFactory.getSignInfo(key);
-    		}
+    	ExtrinsicState state1 = new ExtrinsicState();
+    	state1.setSubject("科目1");
+    	state1.setLocaltion("上海");
+    	SignInfoFactory.getSignInfo(state1);
+    	long currentTime = System.currentTimeMillis();
+    	for(int i=0;i<100;i++){
+    		SignInfoFactory.getSignInfo(state1);
     	}
-    	SignInfo signInfo = SignInfoFactory.getSignInfo("科目1考试地点1");
+    	long tailTime = System.currentTimeMillis();
     }
 }
