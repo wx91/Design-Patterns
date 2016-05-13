@@ -1,5 +1,5 @@
 package com.wangx.DecoratorDemo;
-
+//Component
 public abstract class SchoolReport {
 	//成绩单主要展示的就是你的成绩情况
 	public abstract void report();

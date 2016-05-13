@@ -1,5 +1,5 @@
 package com.wangx.DecoratorDemo;
-
+//ConcreateComponent
 public class FouthGradeSchoolReport extends SchoolReport {
 
 	@Override
