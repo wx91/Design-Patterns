@@ -1,11 +1,10 @@
 package com.wangx.BridgeDemo;
 
-public class IPodCorp extends Corp {
-	
-	public IPodCorp(IPod product) {
+public class ShanZhaiCorp extends Corp {
+	//产什么产品，不知道，被调用的时候才知道
+	public ShanZhaiCorp(Product product) {
 		super(product);
 	}
-
 	//狂赚钱
 	public void makeMoney(){
 		super.makeMoney();
