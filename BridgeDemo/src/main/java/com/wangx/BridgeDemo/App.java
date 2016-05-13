@@ -17,6 +17,9 @@ public class App
     	System.out.println("-----服装公司是这样运行的-----");
     	ClothesCorp clothesCorp = new ClothesCorp();
     	clothesCorp.makeMoney();
+    	System.out.println("\n");
+    	IPodCorp iPodCorp = new IPodCorp();
+    	iPodCorp.makeMoney();
     	
     }
 }
