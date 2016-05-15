@@ -12,9 +12,10 @@ public class Manager extends Employee {
 		this.performance = performance;
 	}
 
+	//我允许访问者访问
 	@Override
-	public String getOtherInfo() {
-		return "业绩："+this.performance+"\t";
+	public void accept(IVisitor visitor) {
+		visitor.visit(this);
 	}
 
 }

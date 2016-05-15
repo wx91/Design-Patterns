@@ -11,10 +11,9 @@ public class CommonEmployee extends Employee {
 	public void setJob(String job) {
 		this.job = job;
 	}
-
+	//我允许访问者访问
 	@Override
-	public String getOtherInfo() {
-		return "工作"+this.job+"\t";
+	public void accept(IVisitor visitor) {
+		visitor.visit(this);
 	}
-
 }

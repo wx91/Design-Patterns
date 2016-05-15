@@ -12,7 +12,7 @@ public class App
     public static void main( String[] args )
     {
     	for(Employee emp:mockEmployee()){
-    		emp.report();
+    		emp.accept(new Visitor());
     	}
     }
     public static List<Employee> mockEmployee(){
