@@ -11,11 +11,17 @@ public class App
 {
     public static void main( String[] args )
     {
-    	IVisitor visitor = new Visitor();
+    	//展示报表访问者
+    	IShowVisitor showVisitor = new ShowVisitor();
+    	//汇总报表的访问者
+    	ITotalVisitor totalVisitor = new TotalVisitor();
     	for(Employee emp:mockEmployee()){
-    		emp.accept(visitor);
-    		System.out.println("本公司的月工资总额是:"+visitor.getTotalSalary());
+    		emp.accept(showVisitor);
+    		emp.accept(totalVisitor);
     	}
+    	//展示baob
+    	showVisitor.report();
+    	totalVisitor.totalSalary();
     }
     public static List<Employee> mockEmployee(){
     	List<Employee> empList = new ArrayList<Employee>();
