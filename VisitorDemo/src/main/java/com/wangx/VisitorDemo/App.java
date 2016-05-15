@@ -11,8 +11,10 @@ public class App
 {
     public static void main( String[] args )
     {
+    	IVisitor visitor = new Visitor();
     	for(Employee emp:mockEmployee()){
-    		emp.accept(new Visitor());
+    		emp.accept(visitor);
+    		System.out.println("本公司的月工资总额是:"+visitor.getTotalSalary());
     	}
     }
     public static List<Employee> mockEmployee(){
