@@ -13,9 +13,9 @@ public class Client {
 			//进行语法判断，并产生递归调用
 		}
 		//产生一个完整的语法数，由各个具体的语法分析进行解析
-		Expression exp = stack.pop();
+//		Expression exp = stack.pop();
 		//具体元素进入场景
-		exp.interpreter(ctx);
+//		exp.interpreter(ctx);
 		
 	}
 
