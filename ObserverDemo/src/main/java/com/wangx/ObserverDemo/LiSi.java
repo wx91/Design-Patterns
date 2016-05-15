@@ -1,6 +1,6 @@
 package com.wangx.ObserverDemo;
 
-public  class LiSi implements ILiSi{
+public  class LiSi implements Observer{
 	//首先李斯是个观察着，一旦韩非子有活动，他就知道，他就要像老板汇报
 	public void update(String str) {
 		System.out.println("李斯：观察到韩非子活动，开始想老板汇报了...");
