@@ -10,8 +10,17 @@ public class App
 {
     public static void main( String[] args )
     {
-    	//首先产生一个根节点
-    	IRoot ceo = new Root("王麻子","总经理",100000);
+    	//首先是组装一个组织结构出来
+    	Branch ceo = compositeCorpTree();
+    	//首先把CEO的信息打印出来
+    	System.out.println(ceo.getInfo());
+    	//然后是所有员工信息
+    	System.out.println(getTreeInfo(ceo));
+    }
+    //把整个数组装出来
+    public static Branch compositeCorpTree(){
+    	//首先产生总经理
+    	Branch root = new Branch("王麻子","总经理",100000);
     	//生产三个部门经理，也就是树枝节点
     	IBranch developerDep = new Branch("刘达","研发部门经理",1000);
     	IBranch saleDep = new Branch("马尔","销售部门经理",20000);
@@ -33,48 +42,43 @@ public class App
     	ILeaf k = new Leaf("k","CEO秘书",8000);
     	ILeaf zhenglaoliu = new Leaf("正老刘","研发部副总",20000);
     	//该生产的人都生产出来了，然后我们怎么组装这颗树
-    	//首先是定义总经理下有三个部门经理
-    	ceo.add(developerDep);
-    	ceo.add(saleDep);
-    	ceo.add(financeDep);
-    	//总计里下还有一个秘书
-    	ceo.add(k);
+    	//首先是定义总经理下有三个部门经理和一个秘书
+    	root.addSubordinate(k);
+    	root.addSubordinate(developerDep);
+    	root.addSubordinate(saleDep);
+    	root.addSubordinate(financeDep);
+    	
     	//定义研发部们下的机构
-    	developerDep.add(firstDevGroup);
-    	developerDep.add(secondDevGroup);
+    	developerDep.addSubordinate(firstDevGroup);
+    	developerDep.addSubordinate(secondDevGroup);
     	//研发部经理下面还有一个副总
-    	developerDep.add(zhenglaoliu);
+    	developerDep.addSubordinate(zhenglaoliu);
     	//看看开发两个小组下有什么
-    	firstDevGroup.add(a);
-    	firstDevGroup.add(b);
-    	firstDevGroup.add(c);
-    	secondDevGroup.add(d);
-    	secondDevGroup.add(e);
-    	secondDevGroup.add(f);
+    	firstDevGroup.addSubordinate(a);
+    	firstDevGroup.addSubordinate(b);
+    	firstDevGroup.addSubordinate(c);
+    	secondDevGroup.addSubordinate(d);
+    	secondDevGroup.addSubordinate(e);
+    	secondDevGroup.addSubordinate(f);
     	//再看销售部下的人员情况
-    	saleDep.add(h);
-    	saleDep.add(i);
+    	saleDep.addSubordinate(h);
+    	saleDep.addSubordinate(i);
     	//最后一个财务部
-    	financeDep.add(j);
-    	//打印写完的数状结构
-    	System.out.println(ceo.getInfo());
-    	//打印出来整个树形
-    	getAllSubordinateInfo(ceo.getSubordinateInfo());
+    	financeDep.addSubordinate(j);
+    	return root;
     }
-    private static void getAllSubordinateInfo(ArrayList subordinateList){
-    	int length = subordinateList.size();
-    	//定义一个ArrayList长度，不在for循环中每次计算
-    	for(int m=0;m<length;m++){
-    		Object s = subordinateList.get(m);
-    		if(s instanceof Leaf){//是个叶子节点，也就是员工
-    			ILeaf employee = (ILeaf)s;
-    			System.out.println(employee.getInfo());
-    		}else{
-    			IBranch branch = (IBranch)s;
-    			System.out.println(branch.getInfo());
-    			//再递归调用
-    			getAllSubordinateInfo(branch.getSubordinateInfo());
+    //遍历整棵树，只要给我根节点，我就能遍历出所有节点
+    private static String getTreeInfo(Branch root){
+    	ArrayList<ICorp> subordinateList = root.getSubordinateInfo();
+    	String info = "";
+    	for(ICorp s:subordinateList){
+ 
+    		if(s instanceof Leaf){//是员工就直接获得信息
+    			info = info + s.getInfo()+"\n";
+    		}else{//是小头目
+    			info = info + s.getInfo()+"\n"+getTreeInfo((Branch)s);
     		}
     	}
+    	return info;
     }
 }

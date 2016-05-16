@@ -3,15 +3,17 @@ package com.wangx.CompositeDemo;
 import java.util.ArrayList;
 
 public class Branch implements IBranch {
-	//存储子节点的信息
-	private ArrayList subordinateList = new ArrayList();
-	//树枝节点的名称
+	
+	
+	//领导人也是人，也有名字
 	private String name="";
-	//树枝节点的职位
+	//领导和领导不同，也就是职位区别
 	private String position = "";
-	//树枝节点的薪水
+	//领导也是拿薪水的
 	private int salary=0;
-	//通过构造函数传递树枝节点的参数
+	//领导下面有哪些下级领导和小兵
+	private ArrayList<ICorp> subordinateList = new ArrayList<ICorp>();
+	//通过构造函数传递领导的信息
 	public Branch(String name, String position, int salary) {
 		super();
 		this.name = name;
@@ -26,16 +28,12 @@ public class Branch implements IBranch {
 		info = info+"\t薪水："+this.salary;
 		return info;
 	}
-	//增加一个树枝节点
-	public void add(IBranch branch) {
-		this.subordinateList.add(branch);
+	//增加一个下属，可能是小头目，也可能是小兵
+	public void addSubordinate(ICorp corp){
+		this.subordinateList.add(corp);
 	}
-
-	public void add(ILeaf leaf) {
-		this.subordinateList.add(leaf);
-	}
-
-	public ArrayList getSubordinateInfo() {
+	//我有哪些下属
+	public ArrayList<ICorp> getSubordinateInfo() {
 		return this.subordinateList;
 	}
 
