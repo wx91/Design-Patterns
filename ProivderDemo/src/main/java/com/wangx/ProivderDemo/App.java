@@ -26,7 +26,9 @@ public class App
     	IUserProvider userProvider = new UserProvider(userList);
     	//打印出年龄大于20岁的用户
     	System.out.println("===年龄大于20岁的用户===");
-    	for(User u:userProvider.findUserByAageThan(20)){
+    	//定义一个规格书
+    	IUserInfoSpecification userSpec = new UserByAgeThan(20);
+    	for(User u:userProvider.findUser(userSpec)){
     		System.out.println(u);
     	}
     }
