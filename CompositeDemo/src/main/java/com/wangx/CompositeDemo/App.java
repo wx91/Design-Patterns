@@ -22,25 +22,25 @@ public class App
     	//首先产生总经理
     	Branch root = new Branch("王麻子","总经理",100000);
     	//生产三个部门经理，也就是树枝节点
-    	IBranch developerDep = new Branch("刘达","研发部门经理",1000);
-    	IBranch saleDep = new Branch("马尔","销售部门经理",20000);
-    	IBranch financeDep = new Branch("赵三","财务部经理",3000);
+    	Branch developerDep = new Branch("刘达","研发部门经理",1000);
+    	Branch saleDep = new Branch("马尔","销售部门经理",20000);
+    	Branch financeDep = new Branch("赵三","财务部经理",3000);
     	//再把三个小组长生产出来
-    	IBranch firstDevGroup = new Branch("杨三","开发一组组长",5000);
-    	IBranch secondDevGroup = new Branch("武大","开发二组组长",6000);
+    	Branch firstDevGroup = new Branch("杨三","开发一组组长",5000);
+    	Branch secondDevGroup = new Branch("武大","开发二组组长",6000);
     	//剩下的就是我们这些小兵了，就是路人甲，路人乙
-    	ILeaf a = new Leaf("a","开发人员",2000);
-    	ILeaf b = new Leaf("b","开发人员",2000);
-    	ILeaf c = new Leaf("c","开发人员",2000);
-    	ILeaf d = new Leaf("d","开发人员",2000);
-    	ILeaf e = new Leaf("e","开发人员",2000);
-    	ILeaf f = new Leaf("f","开发人员",2000);
-    	ILeaf g = new Leaf("g","开发人员",2000);
-    	ILeaf h = new Leaf("h","销售人员",5000);
-    	ILeaf i = new Leaf("i","销售人员",4000);
-    	ILeaf j = new Leaf("j","财务人员",5000);
-    	ILeaf k = new Leaf("k","CEO秘书",8000);
-    	ILeaf zhenglaoliu = new Leaf("正老刘","研发部副总",20000);
+    	Leaf a = new Leaf("a","开发人员",2000);
+    	Leaf b = new Leaf("b","开发人员",2000);
+    	Leaf c = new Leaf("c","开发人员",2000);
+    	Leaf d = new Leaf("d","开发人员",2000);
+    	Leaf e = new Leaf("e","开发人员",2000);
+    	Leaf f = new Leaf("f","开发人员",2000);
+    	Leaf g = new Leaf("g","开发人员",2000);
+    	Leaf h = new Leaf("h","销售人员",5000);
+    	Leaf i = new Leaf("i","销售人员",4000);
+    	Leaf j = new Leaf("j","财务人员",5000);
+    	Leaf k = new Leaf("k","CEO秘书",8000);
+    	Leaf zhenglaoliu = new Leaf("正老刘","研发部副总",20000);
     	//该生产的人都生产出来了，然后我们怎么组装这颗树
     	//首先是定义总经理下有三个部门经理和一个秘书
     	root.addSubordinate(k);
@@ -69,9 +69,9 @@ public class App
     }
     //遍历整棵树，只要给我根节点，我就能遍历出所有节点
     private static String getTreeInfo(Branch root){
-    	ArrayList<ICorp> subordinateList = root.getSubordinateInfo();
+    	ArrayList<Corp> subordinateList = root.getSubordinateInfo();
     	String info = "";
-    	for(ICorp s:subordinateList){
+    	for(Corp s:subordinateList){
  
     		if(s instanceof Leaf){//是员工就直接获得信息
     			info = info + s.getInfo()+"\n";
