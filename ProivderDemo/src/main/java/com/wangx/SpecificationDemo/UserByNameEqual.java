@@ -1,6 +1,6 @@
 package com.wangx.SpecificationDemo;
 
-public class UserByNameEqual implements IUserInfoSpecification {
+public class UserByNameEqual extends CompositeSpecification {
 	//基准姓名
 	private String name;
 	//构造函数传递继承者姓名
