@@ -1,4 +1,4 @@
-package com.wangx.ProivderDemo;
+package com.wangx.SpecificationDemo;
 
 import java.util.ArrayList;
 

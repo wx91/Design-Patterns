@@ -1,4 +1,4 @@
-package com.wangx.ProivderDemo;
+package com.wangx.SpecificationDemo;
 
 public class User {
 	//姓名

@@ -1,4 +1,4 @@
-package com.wangx.ProivderDemo;
+package com.wangx.SpecificationDemo;
 
 public class UserByNameEqual implements IUserInfoSpecification {
 	//基准姓名

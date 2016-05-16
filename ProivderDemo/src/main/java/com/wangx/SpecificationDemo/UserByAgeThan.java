@@ -1,4 +1,4 @@
-package com.wangx.ProivderDemo;
+package com.wangx.SpecificationDemo;
 
 public class UserByAgeThan implements IUserInfoSpecification {
 	//基准年龄

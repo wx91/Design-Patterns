@@ -1,4 +1,4 @@
-package com.wangx.ProivderDemo;
+package com.wangx.SpecificationDemo;
 
 public interface IUserInfoSpecification {
 	//候选者是否满足要求
