@@ -8,6 +8,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	IUserInfo Girl = new OuterUserInfo();
+    	for(int i=0;i<11;i++){
+    		Girl.getMobileNumber();
+    	}
     }
 }
